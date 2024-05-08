@@ -18,3 +18,6 @@
 Count Product: 12
 Total price: 46.3
 ````
+Code coverage: https://github.com/FortuneN/FineCodeCoverage/releases
+
+![Coverage](https://github.com/abaksheiev/flyr-assignment/blob/master/imgs/codeCoverage.png)
