@@ -13,8 +13,11 @@
 |Coffee         |CF1       |x       |7.49      |
 |Strawberries   |SR1       |        |5         |
 |Strawberries   |SR1       |        |5         |
-|Strawberries   |SR1       |        |4.5       |
+|Strawberries   |SR1       |x       |4.5       |
 ------------------------------------------------
 Count Product: 12
 Total price: 46.3
 ````
+Code coverage: https://github.com/FortuneN/FineCodeCoverage/releases
+
+![Coverage](https://github.com/abaksheiev/flyr-assignment/blob/master/imgs/codeCoverage.png)
