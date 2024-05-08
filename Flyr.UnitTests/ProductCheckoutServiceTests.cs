@@ -19,39 +19,8 @@ namespace Flyr.UnitTests
 
         public ProductCheckoutServiceTests()
         {
-            var builder = new ContainerBuilder();
-
-            var mockOptions = new Mock<IOptions<ProductPrice>>();
-            mockOptions.Setup(x => x.Value).Returns(GetMockProductPrices());
-
-            builder.RegisterInstance(mockOptions.Object).As<IOptions<ProductPrice>>();
-
-            builder.RegisterType<BulkDiscountStrategy>().As<IPricingStrategy>();
-            builder.RegisterType<CoffeeDiscountStrategy>().As<IPricingStrategy>();
-            builder.RegisterType<BuyOneGetOneFreeStrategy>().As<IPricingStrategy>();
-
-            // Services
-            builder.RegisterType<ProductCheckoutService>();
-            builder.RegisterType<PurchaseBasket>().SingleInstance();
-            builder.RegisterType<ProductPriceService>().As<IProductPriceService>();
-
-            _container =builder.Build();
-
+            _container = SetupContext.BuildContainer();
             productCheckoutService = _container.Resolve<ProductCheckoutService>();
-
-        }
-
-        private ProductPrice GetMockProductPrices()
-        {
-            return new ProductPrice
-            {
-                Data = new List<ProductPriceItem>
-                {
-                    new ProductPriceItem { Price = 3.0, Code = ProductCode.Coffee.GetStringValue() },
-                    new ProductPriceItem  { Price = 5.0, Code = ProductCode.Strawberries.GetStringValue() },
-                    new ProductPriceItem  { Price = 1.0, Code = ProductCode.GreenTea.GetStringValue() }
-                }
-            };
         }
 
         #region Green Teas
