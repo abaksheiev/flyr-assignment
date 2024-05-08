@@ -39,9 +39,9 @@ namespace Flyr.App
                 service.Scan(Product.CreateStrawberries);
                 service.Scan(Product.CreateStrawberries);
 
-                // Print resuilt
-                service.PrintProduct();
-                Console.WriteLine($"Total price: {service.TotalPrice()}");
+                // Print result
+                service.PrintProductReports();
+              
             }
         }
     }

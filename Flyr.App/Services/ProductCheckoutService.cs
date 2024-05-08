@@ -1,6 +1,9 @@
-﻿using Flyr.App.Contracts;
+﻿using Autofac.Core;
+using Flyr.App.Contracts;
 using Flyr.App.Extensions;
 using Flyr.App.Models;
+using System.Diagnostics;
+using System.Xml.Linq;
 using static Flyr.App.Models.PurchaseBasket;
 
 namespace Flyr.App.Services
@@ -43,17 +46,24 @@ namespace Flyr.App.Services
             _productCard.Reset();
         }
 
-        internal void PrintProduct()
+        internal void PrintProductReports()
         {
+            Console.WriteLine("------------------------------------------------");
+            Console.WriteLine($"|{"Code".PadRight(15)}|{"Code Name".PadRight(10)}|{"Discount".PadRight(3).PadLeft(3)}|{"Price".PadRight(10)}|");
+            Console.WriteLine("------------------------------------------------");
             foreach (ProductItem item in _productCard.Products)
             {
                 var code = $"{item.Code}".PadRight(15);
                 var codeName = $"{item.Code.GetStringValue()}".PadRight(10);
-                var comments = $"{item.Price}".PadRight(20);
-                var isDiscount = $"{item.Discount}".PadRight(5);
+                var price = $"{item.Price}".PadRight(10);
+                var isDiscount = $"{(item.Discount?'x':' ')}".PadRight(8);
 
-                Console.WriteLine($"|{code}|{codeName}|{isDiscount}|{comments}|");
+                Console.WriteLine($"|{code}|{codeName}|{isDiscount}|{price}|");
             }
+            Console.WriteLine("------------------------------------------------");
+
+            Console.WriteLine($"Count Product: {TotalProduct()}");
+            Console.WriteLine($"Total price: {TotalPrice()}");
         }
     }
 }
