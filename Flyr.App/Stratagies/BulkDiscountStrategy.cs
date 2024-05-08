@@ -25,7 +25,7 @@ namespace Flyr.App.Strategies
             // Apply discount for already present items
             if (totalAlreadyPresent >= Threshold - 1)
             {
-                PurchaseBasket.AddProduct(item.Code, DiscountPrice, DiscountMessage);
+                PurchaseBasket.AddProduct(item.Code, DiscountPrice, DiscountMessage, isDiscount: true);
                 return;
             }
 

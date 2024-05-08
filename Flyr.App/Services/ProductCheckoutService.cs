@@ -1,9 +1,6 @@
-﻿using Autofac.Core;
-using Flyr.App.Contracts;
+﻿using Flyr.App.Contracts;
 using Flyr.App.Extensions;
 using Flyr.App.Models;
-using System.Diagnostics;
-using System.Xml.Linq;
 using static Flyr.App.Models.PurchaseBasket;
 
 namespace Flyr.App.Services
